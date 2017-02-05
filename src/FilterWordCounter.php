@@ -13,19 +13,25 @@ namespace WordCounter;
 
 Palabras que empiecen por vocal (5)
 Palabras de más de dos caracteres (18)
-Palabras clave (6)
-palabrejas, gañán, hiper-arquitecto, que, eh.
- * */
+Contar solo las palabras que empiecen por vocal y tengan más de 2 caracteres (1)
 
-abstract class FilterWordCounter
+    */
+
+
+
+
+class FilterWordCounter extends OperationsWordCounter
 {
 
-    private $array_key_words = ['palabrejas','gañán','hiper-arquitecto','que','eh'];
-    private $array_symbols = array(",",".",":");
+    const LENGTH_WORD = 2;
+
+    public function __construct()
+    {
+    }
 
     public function numWords($string)
     {
-        count(explode(" ", $string));
+        return count(explode(" ", $string));
     }
 
     public function startVowel($string){
@@ -33,7 +39,7 @@ abstract class FilterWordCounter
         $cont=0;
 
         foreach ($this->stringToArray($string) as $word){
-            if (preg_match("/^[aeiouáéíóúü]/i",$word)){
+            if ($this->strStartVowel($word)){
                     $cont++;
             }
         }
@@ -46,7 +52,7 @@ abstract class FilterWordCounter
         $cont = 0;
 
         foreach ($this->stringToArray($string) as $word){
-            if (strlen($word)>2){
+            if ($this->lengthWord($word) > FilterWordCounter::LENGTH_WORD){
                 $cont++;
             }
         }
@@ -54,14 +60,13 @@ abstract class FilterWordCounter
         return $cont;
     }
 
-    public function numKeyWords($string){
+    public function numWordsStartVowelMoreTwoCharacters($string){
+
         $cont =0;
 
         foreach ($this->stringToArray($string) as $word){
-            foreach ($this->array_key_words as $keyWord) {
-                if ($word == $keyWord){
-                    $cont++;
-                }
+            if ($this->strStartVowel($word) && $this->lengthWord($word) > FilterWordCounter::LENGTH_WORD){
+                $cont ++;
             }
         }
 
@@ -69,17 +74,5 @@ abstract class FilterWordCounter
     }
 
 
-    private function lowerCase($text){
-        return strtolower($text);
-    }
 
-
-    private function stringToArray($string){
-        return   explode(" ",$this->removeSymbols($this->lowerCase($string)));
-    }
-
-    private function removeSymbols($string){
-
-        return str_replace($this->array_symbols,"",$string);
-    }
 }
