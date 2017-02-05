@@ -1,0 +1,9 @@
+{
+  "name": "carlos_arteche/word_counter",
+  "description": "Entregable 1",
+  "autoload":{
+    "psr-4": {
+      "WordCounter\\": "src/"
+    }
+  }
+}
