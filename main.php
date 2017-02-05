@@ -17,4 +17,7 @@ $string = "Esto es un texto molón que sirve como juego de pruebas para la kata 
 
 $wordcounter = new WordCounter($string);
 
-echo "Total words: " . $wordcounter->countWords() . "\n";
+echo "Total de palabras: " . $wordcounter->countWords() . "\n";
+echo "Total de palabras que empiecen por vocal: " . $wordcounter->countStartVowel() . "\n";
+echo "Total de palabras de más de dos caracteres: " . $wordcounter->countWordsMoreTwoCharacters() . "\n";
+echo "Total de palabras clave: " . $wordcounter->countKeyWords() . "\n";

@@ -8,8 +8,7 @@
 
 namespace WordCounter;
 
-
-class WordCounter
+class WordCounter extends FilterWordCounter
 {
     private $string;
 
@@ -20,7 +19,19 @@ class WordCounter
 
     public function countWords(){
 
-        return count(explode(" ",$this->string));
+        return parent::numWords($this->string);
+    }
+
+    public function countStartVowel(){
+        return parent::startVowel($this->string);
+    }
+
+    public function countWordsMoreTwoCharacters(){
+        return parent::wordsMoreTwoCharacters($this->string);
+    }
+
+    public function countKeyWords(){
+        return parent::numKeyWords($this->string);
     }
 
 
