@@ -11,9 +11,9 @@ Keywors: palabrejas, gañán, hiper-arquitecto, que, eh.
 6- Palabras que no empiecen por vocal o que sí empiecen por vocal pero tengan mas de dos carácteres
  */
 
-namespace WordCounter;
+namespace WordCounter ;
 
-class Filters
+class Filters implements ActionsFilters
 {
 
     const TOTALWORDS = 0;

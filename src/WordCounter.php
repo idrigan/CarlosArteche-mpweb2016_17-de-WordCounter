@@ -4,20 +4,20 @@ namespace WordCounter;
 
 use WordCounter\Filters;
 
-class WordCounter implements ActionsFilters
+class WordCounter
 {
     private $string;
-    private $filter;
+    private $interfaceFilter;
 
-    public function __construct($string)
+    public function __construct($string,ActionsFilters $filter)
     {
         $this->string = $string;
-        $this->filter = new Filters();
+        $this->interfaceFilter = $filter;
 
     }
 
     public function doFilter($type)
     {
-        return $this->filter->doFilter($type,$this->string);
+        return $this->interfaceFilter->doFilter($type,$this->string);
     }
 }

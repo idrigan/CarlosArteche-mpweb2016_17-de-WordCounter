@@ -4,6 +4,6 @@ namespace WordCounter;
 
 interface ActionsFilters{
 
-    public function doFilter($type);
+    public function doFilter($type,$setence);
 
 }

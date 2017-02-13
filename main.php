@@ -10,7 +10,9 @@ use WordCounter\Filters;
 
 $string = "Esto es un texto molón que sirve como juego de pruebas para la kata de contar palabrejas. No me hagas un diseño de gañán ni de hiper-arquitecto. Que te veo, eh.";
 
-$wordcounter = new WordCounter($string);
+$filters = new Filters();
+
+$wordcounter = new WordCounter($string,$filters);
 
 echo "ENTREGA 1" ."\n\n";
 
