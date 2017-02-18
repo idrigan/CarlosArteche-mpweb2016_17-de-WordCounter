@@ -3,7 +3,8 @@
   "description": "Entregable 1",
   "autoload":{
     "psr-4": {
-      "WordCounter\\": "src/"
+      "WordCounter\\": "src/",
+      "WordCounter\\Filters\\": "src/filters/"
     }
   }
 }

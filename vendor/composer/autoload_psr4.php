@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'WordCounter\\Filters\\' => array($baseDir . '/src/filters'),
     'WordCounter\\' => array($baseDir . '/src'),
 );

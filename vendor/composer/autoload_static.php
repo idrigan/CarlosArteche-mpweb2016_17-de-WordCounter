@@ -9,11 +9,16 @@ class ComposerStaticInitb5944084345fc75025fdc93993e4937e
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
+            'WordCounter\\Filters\\' => 20,
             'WordCounter\\' => 12,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'WordCounter\\Filters\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/filters',
+        ),
         'WordCounter\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',

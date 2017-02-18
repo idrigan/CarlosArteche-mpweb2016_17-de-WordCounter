@@ -6,18 +6,29 @@ use WordCounter\Filters;
 
 class WordCounter
 {
-    private $string;
-    private $interfaceFilter;
+    private $array_symbols = array(",",".",":");
 
-    public function __construct($string,ActionsFilters $filter)
+    public function __construct()
     {
-        $this->string = $string;
-        $this->interfaceFilter = $filter;
-
     }
 
-    public function doFilter($type)
+    public function filter( $sentence , Filters\GroupFilters $groupFilters )
     {
-        return $this->interfaceFilter->doFilter($type,$this->string);
+        $sentence = $this->lowerCase( $this->removeSymbols($sentence) );
+        $filters = $groupFilters->getFilters();
+        foreach ($filters as $filter) {
+            echo $filter->getText().": ".count($filter->filter($sentence))."\n";
+        }
     }
+
+    private function removeSymbols( $sentence )
+    {
+        return str_replace ( $this->array_symbols, "", $sentence ) ;
+    }
+
+    private function lowerCase( $sentence )
+    {
+        return strtolower( $sentence );
+    }
+
 }
